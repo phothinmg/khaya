@@ -49,7 +49,7 @@ export class DateTime {
     get SG(): number;
     get mlen(): number;
 }
-export class BurmeseDate extends DateTime {
+export class burmeseDate extends DateTime {
     static GetMyConst(my: any): {
         EI: number;
         WO: number;
@@ -63,13 +63,13 @@ export class BurmeseDate extends DateTime {
         watat: number;
     };
     static cal_my(my: any): {
-        myt: number;
+        myt: any;
         tg1: number;
         fm: number;
         werr: number;
     };
     static j2m(jdn: any): {
-        myt: number;
+        myt: any;
         my: number;
         mm: number;
         md: number;
@@ -102,24 +102,24 @@ export class BurmeseDate extends DateTime {
     static cal_holiday2(jdn: any): string[];
     static j2ms(jd: any, fs?: string, tz?: number): string;
     SetMDateTime(my: any, mm: any, md: any, hour?: number, minute?: number, second?: number, tz?: number): void;
-    get myt(): number;
-    get my(): number;
-    get sy(): number;
+    get myt(): any;
+    get my(): any;
+    get sy(): any;
     get my_name(): string;
-    get mm(): number;
-    get md(): number;
-    get mp(): number;
-    get mf(): number;
-    get mmlen(): number;
+    get mm(): any;
+    get md(): any;
+    get mp(): any;
+    get mf(): any;
+    get mmlen(): any;
     get sabbath(): string;
     get yatyaza(): "" | "Yatyaza";
     get pyathada(): string;
     get nagahle(): string;
     get mahabote(): string;
     get nakhat(): string;
-    get astro(): string[];
-    get holidays(): string[];
-    get holidays2(): string[];
-    ToMString(fs?: string): string;
+    get astro(): any;
+    get holidays(): any;
+    get holidays2(): any;
+    ToMString(fs?: string): any;
 }
 //# sourceMappingURL=burmeseDate.d.ts.map

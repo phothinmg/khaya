@@ -1,5 +1,5 @@
 /*
-Base on mmcal https://github.com/yan9a/mmcal;
+Original from mmcal https://github.com/yan9a/mmcal;
 */
 class DateTime {
     constructor(m_jd,m_tz,m_ct = 0,m_SG = 2361222) {
@@ -337,7 +337,7 @@ class DateTime {
     //-------------------------------------------------------------------------
     } //DateTime
     
-    class BurmeseDate extends DateTime {
+    class burmeseDate extends DateTime {
     //-------------------------------------------------------------------------
     constructor(m_jd,m_tz,m_ct = 0,m_SG = 2361222) {
         super(m_jd,m_tz,m_ct,m_SG);
@@ -926,5 +926,5 @@ class DateTime {
     
     } 
 
-export {DateTime,BurmeseDate}
+export {DateTime,burmeseDate}
 

@@ -1,11 +1,11 @@
-import {DateTime,BurmeseDate} from './burmeseDate.js'
+import {DateTime,burmeseDate} from './burmeseDate.js';
 import translate from './translate.js';
-export default function mmdate(lang:number,date:string){
+export default function mmdate(date:string,lang:number){
     const y = parseInt(date.split('-')[0]);
     const m = parseInt(date.split('-')[1]);
     const d = parseInt(date.split('-')[2]);
     const jdn = DateTime.w2j(y,m,d);
-    const mdt = new BurmeseDate(jdn, 6.5);
+    const mdt = new burmeseDate(jdn, 6.5);
     const ssy = translate({text : mdt.ToMString('&YYYY'), lang: lang});
     const mmy = translate({text:mdt.ToMString('&yyyy'),lang:lang});
     const mmm = translate({text:mdt.ToMString('&M'),lang:lang});
@@ -17,11 +17,11 @@ export default function mmdate(lang:number,date:string){
     const dgh = translate({text:mdt.nagahle,lang:lang});
     const sbat = translate({text:mdt.sabbath,lang:lang});
     const mmlen = translate({text:mdt.mmlen.toString(), lang:lang});
-    const MY = BurmeseDate.j2m(jdn).my;
+    const MY = burmeseDate.j2m(jdn).my;
     const mmyt = ["common","little watat","big watat"][mdt.mf]
     const myt = translate({text:mmyt,lang:lang});
     const h = mdt.holidays;
-    let hd1;
+    let hd1: string;
     if(h.length === 0){
         hd1 = ''
     } else {
