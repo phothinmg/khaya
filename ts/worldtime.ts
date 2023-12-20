@@ -1,8 +1,8 @@
 
-import data from '../api/data/raw-time-zones.json';
+import data from './raw-time-zones.json';
 
 
-const dayOfYear = (date)=> {
+const dayOfYear = (date: any)=> {
     return Math.floor((date.getTime() - new Date(date.getFullYear(), 0, 0).getTime()) / 1000 / 60 / 60 / 24);
 };
 

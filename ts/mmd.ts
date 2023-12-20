@@ -18,7 +18,8 @@ export default function mmdate(lang:number,date:string){
     const sbat = translate({text:mdt.sabbath,lang:lang});
     const mmlen = translate({text:mdt.mmlen.toString(), lang:lang});
     const MY = BurmeseDate.j2m(jdn).my;
-    const myt = mdt.mf
+    const mmyt = ["common","little watat","big watat"][mdt.mf]
+    const myt = translate({text:mmyt,lang:lang});
     const h = mdt.holidays;
     let hd1;
     if(h.length === 0){
@@ -47,7 +48,7 @@ export default function mmdate(lang:number,date:string){
     });
 
     
-    return {ssy, mmy, myn, mmm, mp, mmd, yyz,ptd, dgh, sbat, hd1, hd2, mhb, nk,ast, mwd, MY, mmlen}
+    return {ssy, mmy, myn, mmm, mp, mmd, yyz,ptd, dgh, sbat, hd1, hd2, mhb, nk,ast, mwd, MY, mmlen, myt}
 
    
 
