@@ -379,8 +379,8 @@ class DateTime {
             [729,1], [767,-1]];		
             wte=[];
         }
-        i=BurmeseDate.bSearch2(my,fme); if(i >= 0) WO+=fme[i][1]; // full moon day offset exceptions
-        i=BurmeseDate.bSearch1(my,wte); if(i >= 0) EW = 1; //correct watat exceptions
+        i=burmeseDate.bSearch2(my,fme); if(i >= 0) WO+=fme[i][1]; // full moon day offset exceptions
+        i=burmeseDate.bSearch1(my,wte); if(i >= 0) EW = 1; //correct watat exceptions
     
         return {EI:EI,WO:WO,NM:NM,EW:EW};
     }
@@ -412,7 +412,7 @@ class DateTime {
         var SY=1577917828.0/4320000.0; //solar year (365.2587565)
         var LM=1577917828.0/53433336.0; //lunar month (29.53058795)
         var MO=1954168.050623; //beginning of 0 ME for MMT
-        var c=BurmeseDate.GetMyConst(my); // get constants for the corresponding calendar era
+        var c=burmeseDate.GetMyConst(my); // get constants for the corresponding calendar era
         var TA=(SY/12-LM)*(12-c.NM); //threshold to adjust
         var ed=(SY*(my+3739))%LM; // excess day
         if(ed < TA) ed+=LM;//adjust excess days
@@ -464,7 +464,7 @@ class DateTime {
     }
     //-------------------------------------------------------------------------
     static cal_mp(md,mm,myt) {
-        var mml=BurmeseDate.cal_mml(mm,myt);
+        var mml=burmeseDate.cal_mml(mm,myt);
         return (Math.floor((md+1)/16)+Math.floor(md/16)+Math.floor(md/mml));
     }
     //-------------------------------------------------------------------------
@@ -483,14 +483,14 @@ class DateTime {
     }
     //-------------------------------------------------------------------------
     static cal_md(mf,mp,mm,myt) {
-        var mml=BurmeseDate.cal_mml(mm,myt);
+        var mml=burmeseDate.cal_mml(mm,myt);
         var m1=mp%2; var m2=Math.floor(mp/2);
         return (m1*(15+m2*(mml-15))+(1-m1)*(mf+15*m2));
     }
     //-------------------------------------------------------------------------
     static m2j(my,mm,md) {
         var b,c,dd,myl,mmt;
-        var yo=BurmeseDate.cal_my(my);//check year
+        var yo=burmeseDate.cal_my(my);//check year
         mmt=Math.floor(mm/13); mm=mm%13+mmt; // to 1-12 with month type
         b=Math.floor(yo.myt/2); c=1-Math.floor((yo.myt+1)/2); //if big watat and common year	 
         mm+=4-Math.floor((mm+15)/16)*4+Math.floor((mm+12)/16);//adjust month
@@ -501,11 +501,11 @@ class DateTime {
     }
     //-------------------------------------------------------------------------
     SetMDateTime(my, mm, md, hour = 12, minute = 0, second = 0, tz = 0) {
-        this.m_jd = BurmeseDate.m2j(my, mm, md)+DateTime.t2d(hour, minute, second) - tz / 24.0;
+        this.m_jd = burmeseDate.m2j(my, mm, md)+DateTime.t2d(hour, minute, second) - tz / 24.0;
     }
     //-------------------------------------------------------------------------
     static cal_sabbath(md,mm,myt){
-        var mml=BurmeseDate.cal_mml(mm,myt);
+        var mml=burmeseDate.cal_mml(mm,myt);
         var s=0; if((md==8)||(md==15)||(md==23)||(md==mml)) s=1;
         if((md==7)||(md==14)||(md==22)||(md==(mml-1))) s=2;
         return s;
@@ -625,27 +625,27 @@ class DateTime {
     static cal_astro(jdn) {
         jdn=Math.round(jdn);
         var myt,my,mm,md; var hs=[]; 
-        var yo=BurmeseDate.j2m(jdn);
+        var yo=burmeseDate.j2m(jdn);
         myt=yo.myt; my=yo.my; mm = yo.mm; md=yo.md;
         var wd=(jdn+2)%7;//week day [0=sat, 1=sun, ..., 6=fri]
-        if(BurmeseDate.cal_thamanyo(mm,wd)) {hs.push("Thamanyo");}
-        if(BurmeseDate.cal_amyeittasote(md,wd)) {hs.push("Amyeittasote");}
-        if(BurmeseDate.cal_warameittugyi(md,wd)) {hs.push("Warameittugyi");}
-        if(BurmeseDate.cal_warameittunge(md,wd)) {hs.push("Warameittunge");}
-        if(BurmeseDate.cal_yatpote(md,wd)) {hs.push("Yatpote");}
-        if(BurmeseDate.cal_thamaphyu(md,wd)) {hs.push("Thamaphyu");}
-        if(BurmeseDate.cal_nagapor(md,wd)) {hs.push("Nagapor");}
-        if(BurmeseDate.cal_yatyotema(mm,md)) {hs.push("Yatyotema");}
-        if(BurmeseDate.cal_mahayatkyan(mm,md)) {hs.push("Mahayatkyan");}
-        if(BurmeseDate.cal_shanyat(mm,md)) {hs.push("Shanyat");}
+        if(burmeseDate.cal_thamanyo(mm,wd)) {hs.push("Thamanyo");}
+        if(burmeseDate.cal_amyeittasote(md,wd)) {hs.push("Amyeittasote");}
+        if(burmeseDate.cal_warameittugyi(md,wd)) {hs.push("Warameittugyi");}
+        if(burmeseDate.cal_warameittunge(md,wd)) {hs.push("Warameittunge");}
+        if(burmeseDate.cal_yatpote(md,wd)) {hs.push("Yatpote");}
+        if(burmeseDate.cal_thamaphyu(md,wd)) {hs.push("Thamaphyu");}
+        if(burmeseDate.cal_nagapor(md,wd)) {hs.push("Nagapor");}
+        if(burmeseDate.cal_yatyotema(mm,md)) {hs.push("Yatyotema");}
+        if(burmeseDate.cal_mahayatkyan(mm,md)) {hs.push("Mahayatkyan");}
+        if(burmeseDate.cal_shanyat(mm,md)) {hs.push("Shanyat");}
         return hs;
     }
     static cal_holiday(jdn) {
         jdn=Math.round(jdn);
         var myt,my,mm,md,mp,mmt,gy,gm,gd;
-        var yo=BurmeseDate.j2m(jdn);
+        var yo=burmeseDate.j2m(jdn);
         myt=yo.myt; my=yo.my; mm = yo.mm; md=yo.md;
-        mp=BurmeseDate.cal_mp(md,mm,myt);
+        mp=burmeseDate.cal_mp(md,mm,myt);
         mmt=Math.floor(mm/13); var hs=[];
         var go=DateTime.j2w(jdn);
         gy=go.y; gm=go.m; gd=go.d;
@@ -713,15 +713,15 @@ class DateTime {
     static cal_holiday2(jdn) {
         jdn=Math.round(jdn);
         var myt,my,mm,md,mp,mmt,gy,gm,gd;
-        var yo=BurmeseDate.j2m(jdn);
+        var yo=burmeseDate.j2m(jdn);
         myt=yo.myt; my=yo.my; mm = yo.mm; md=yo.md;
-        mp=BurmeseDate.cal_mp(md,mm,myt);
+        mp=burmeseDate.cal_mp(md,mm,myt);
         mmt=Math.floor(mm/13); var hs=[];
         var go=DateTime.j2w(jdn);
         gy=go.y; gm=go.m; gd=go.d;
         //---------------------------------
         // holidays on gregorian calendar	
-        var doe=BurmeseDate.DoE(gy);
+        var doe=burmeseDate.DoE(gy);
         if((gy<=2017) && (gm==1) && (gd==1)) {hs.push("New Year's Day");}
         else if((gy>=1915) && (gm==2) && (gd==13)) {hs.push("G. Aung San BD");}
         else if((gy>=1969) && (gm==2) && (gd==14)) {hs.push("Valentines Day");}
@@ -760,10 +760,10 @@ class DateTime {
         jd+=tz/24.0;
         var jdn=Math.round(jd);
         var myt,my,mm,md,mp,mf; 
-        var yo=BurmeseDate.j2m(jdn);
+        var yo=burmeseDate.j2m(jdn);
         myt=yo.myt; my=yo.my; mm = yo.mm; md=yo.md;
-        mp=BurmeseDate.cal_mp(md,mm,myt);
-        mf=BurmeseDate.cal_mf(md);
+        mp=burmeseDate.cal_mp(md,mm,myt);
+        mf=burmeseDate.cal_mf(md);
         var mma=["First Waso","Tagu","Kason","Nayon","Waso","Wagaung","Tawthalin",
         "Thadingyut","Tazaungmon","Nadaw","Pyatho","Tabodwe","Tabaung","Late Tagu","Late Kason"];
         var mpa=["Waxing","Full Moon","Waning","New Moon"];
@@ -811,13 +811,13 @@ class DateTime {
     
     // Myanmar year type
     get myt(){ 
-        var yo=BurmeseDate.j2m(this.jdnl);
+        var yo=burmeseDate.j2m(this.jdnl);
         return yo.myt;
     } 
     
     // Myanmar year
     get my(){ 
-        var yo=BurmeseDate.j2m(this.jdnl);
+        var yo=burmeseDate.j2m(this.jdnl);
         return yo.my;
     } 
     
@@ -841,30 +841,30 @@ class DateTime {
     
     // Myanmar day of the month [1-30]
     get md(){ 
-        var yo=BurmeseDate.j2m(this.jdnl);
+        var yo=burmeseDate.j2m(this.jdnl);
         return yo.md;
     } 
     
     // Moon phase [0=waxing, 1=full moon, 2=waning, 3=new moon]
     get mp(){ 
-        var yo=BurmeseDate.j2m(this.jdnl);
-        return BurmeseDate.cal_mp(yo.md,yo.mm,yo.myt);
+        var yo=burmeseDate.j2m(this.jdnl);
+        return burmeseDate.cal_mp(yo.md,yo.mm,yo.myt);
     } 
     
     // Fortnight day [1-15]
     get mf() {
-        return BurmeseDate.cal_mf(this.md);
+        return burmeseDate.cal_mf(this.md);
     }
     
     // Length of this Myanmar month
     get mmlen() {
-        return BurmeseDate.cal_mml(this.mm,this.myt);
+        return burmeseDate.cal_mml(this.mm,this.myt);
     }
     
     // get sabbath string
     get sabbath() {
-        var yo=BurmeseDate.j2m(this.jdnl);
-        var sb=BurmeseDate.cal_sabbath(yo.md,yo.mm,yo.myt);
+        var yo=burmeseDate.j2m(this.jdnl);
+        var sb=burmeseDate.cal_sabbath(yo.md,yo.mm,yo.myt);
         var str="";
         if(sb==1) str="Sabbath";
         else if(sb==2) str="Sabbath Eve";
@@ -873,55 +873,55 @@ class DateTime {
     
     // get yatyaza string
     get yatyaza() {
-        var v=BurmeseDate.cal_yatyaza(this.mm,this.w);
+        var v=burmeseDate.cal_yatyaza(this.mm,this.w);
         return (v?"Yatyaza":"");
     }
     
     // get pyathada string
     get pyathada() {
-        var v=BurmeseDate.cal_pyathada(this.mm,this.w);
+        var v=burmeseDate.cal_pyathada(this.mm,this.w);
         var pa=["","Pyathada","Afternoon Pyathada"];
         return pa[v%3];
     }
     
     // get nagahle direction
     get nagahle() {
-        var v=BurmeseDate.cal_nagahle(this.mm);
+        var v=burmeseDate.cal_nagahle(this.mm);
         var pa=["West","North","East","South"];
         return pa[v%4];
     }
     
     // get mahabote
     get mahabote() {
-        var v=BurmeseDate.cal_mahabote(this.my,this.w);
+        var v=burmeseDate.cal_mahabote(this.my,this.w);
         var pa=["Binga","Atun","Yaza","Adipati","Marana","Thike","Puti"];
         return pa[v%7];
         }
     
     // get nakhat
     get nakhat() {
-        var v = BurmeseDate.cal_nakhat(this.my);
+        var v = burmeseDate.cal_nakhat(this.my);
         var pa = ["Ogre", "Elf", "Human"];
         return pa[v%3];
     }
     
     // get the array of astrological days
     get astro() {
-        return BurmeseDate.cal_astro(this.jdnl);
+        return burmeseDate.cal_astro(this.jdnl);
     }
     
     // get the array of public holidays
     get holidays() {
-        return BurmeseDate.cal_holiday(this.jdnl);
+        return burmeseDate.cal_holiday(this.jdnl);
     }
     
     // get the array of other holidays
     get holidays2() {
-        return BurmeseDate.cal_holiday2(this.jdnl);
+        return burmeseDate.cal_holiday2(this.jdnl);
     }
     
     ToMString(fs="&yyyy &M &P &ff") {
-        return BurmeseDate.j2ms(this.jd,fs,this.tz);
+        return burmeseDate.j2ms(this.jd,fs,this.tz);
     }
     
     } 
