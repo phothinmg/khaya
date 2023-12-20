@@ -1,0 +1,25 @@
+{
+  "name": "datums",
+  "version": "0.0.1",
+  "description": "Dtae Time Api",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\"\""
+  },
+  "keywords": [
+    "Date",
+    "Time",
+    "Burmese",
+    "Calendar"
+  ],
+  "author": "Pho Thin Maung",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
