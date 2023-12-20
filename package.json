@@ -2,14 +2,15 @@
   "name": "burmese",
   "version": "1.0.0",
   "description": "Dtae Time Api",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
     "build": "tsc --b"
   },
   "repository": {
     "type": "git",
-    "url": "\"\""
+    "url": "git+https://github.com/phothinmg/burmese.git"
   },
   "keywords": [
     "Date",
