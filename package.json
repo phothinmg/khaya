@@ -1,6 +1,6 @@
 {
   "name": "burmese",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dtae Time Api",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
