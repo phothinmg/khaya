@@ -1,10 +1,12 @@
-Burmese Date
+# Burmese Date
 
 This project was conducted for the purpose of learning about calculating calendar dates, JavaScript date objects, time zones and Myanmar calendar calculations.
 
 The Burmese calendar does not have a fixed number of days. Leap years can only be used in calendars issued by the national government, so it is impossible to plan calendars for the next future  years.  Officially published cleandar dates still depend on the National Calendar Advisory Board of Myanmar(Burma).
 
 Yan Naing Aye, (https://scholar.google.com.sg/citations?user=MOmTzIwAAAAJ&hl=en&oi=ao) derived the Burmese calendar with the same ease and simplicity as any other calendar, and diligently adhered to the ancient principles. The calendar (https://yan9a.github.io/mmcal/) he created that shows the Burmese days for about 1,500 years.Nowadays, many  Burmese calendar web and mobile applications can be found relying on his algorithm, and this project is the same way. More detail about that read this article ==> (https://cool-emerald.blogspot.com/2013/06/algorithm-program-and-calculation-of.html).
+
+
 
 
 
