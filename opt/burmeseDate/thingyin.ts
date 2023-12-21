@@ -1,4 +1,4 @@
-import { burmeseDate } from "./burmeseDate.js";
+import { burmeseDate } from "../../src/buemese-date/burmeseDate.js";
 
 function thingyanTime(my: number) {
 	var SY=1577917828/4320000; //solar y (365.2587565)
@@ -33,7 +33,7 @@ function getThingyan (my: number){
     atatDay = `${atd.y}-${emName[atd.m-1]}-${atd.d}`,
     nyd = burmeseDate.j2w(ppp.da + 1),
     nyDay = `${nyd.y}-${emName[nyd.m-1]}-${nyd.d}`;
-    let sakd;
+    let sakd : string;
     if(ppp.da-ppp.dk>2){
         const sakdd = burmeseDate.j2w(ppp.da -1);
         sakd = `${sakdd.y}-${emName[sakdd.m-1]}-${sakdd.d}`;

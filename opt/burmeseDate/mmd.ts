@@ -1,6 +1,6 @@
-import {DateTime,burmeseDate} from './burmeseDate.js';
+import {DateTime,burmeseDate} from '../../src/buemese-date/burmeseDate.js';
 import translate from './translate.js';
-export default function mmdate(date:string,lang:number){
+export function mmdate(date:string,lang:number){
     const y = parseInt(date.split('-')[0]);
     const m = parseInt(date.split('-')[1]);
     const d = parseInt(date.split('-')[2]);

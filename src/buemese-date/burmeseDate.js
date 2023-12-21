@@ -435,8 +435,8 @@ class DateTime {
     //-------------------------------------------------------------------------
     static cal_my(my) {
         var yd=0,y1,nd=0,werr=0,fm=0;
-        var y2=BurmeseDate.cal_watat(my); var myt=y2.watat;
-        do{ yd++; y1=BurmeseDate.cal_watat(my-yd);}while(y1.watat==0 && yd < 3);
+        var y2=burmeseDate.cal_watat(my); var myt=y2.watat;
+        do{ yd++; y1=burmeseDate.cal_watat(my-yd);}while(y1.watat==0 && yd < 3);
         if(myt) { nd=(y2.fm-y1.fm)%354; myt=Math.floor(nd/31)+1;
             fm=y2.fm; if(nd!=30 && nd!=31) {werr=1;} }
         else fm=y1.fm+354*yd;
@@ -450,7 +450,7 @@ class DateTime {
         var MO=1954168.050623; //beginning of 0 ME
         var my,yo,dd,myl,mmt,a,b,c,e,f,mm,md;
         my=Math.floor((jdn-0.5-MO)/SY);//Myanmar year
-        yo=BurmeseDate.cal_my(my);//check year
+        yo=burmeseDate.cal_my(my);//check year
         dd=jdn-yo.tg1+1;//day count
         b=Math.floor(yo.myt/2); c=Math.floor(1/(yo.myt+1)); //big wa and common yr
         myl=354+(1-c)*30+b;//year length
