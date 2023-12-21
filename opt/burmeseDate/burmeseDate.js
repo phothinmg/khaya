@@ -835,7 +835,7 @@ class DateTime {
     } 
     
     get mm(){ 
-        var yo=BurmeseDate.j2m(this.jdnl);
+        var yo=burmeseDateurmeseDate.j2m(this.jdnl);
         return yo.mm;
     } 
     

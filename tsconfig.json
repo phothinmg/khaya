@@ -84,6 +84,6 @@
     "skipLibCheck": true,
                                   
   },
-  "exclude": ["dist/**/*", "Learning_notes/**/*"],
+  "exclude": ["dist/**/*", "opt/**/*"],
   "include": ["src/**/*"]
 }
