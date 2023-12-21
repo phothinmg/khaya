@@ -1,4 +1,4 @@
-[
+const data = [
     {
        "name": "Pacific/Niue",
        "alternativeName": "Niue Time",
@@ -6404,4 +6404,6 @@
        "abbreviation": "LINT",
        "rawFormat": "+14:00 Line Islands Time - Kiritimati"
     }
- ]
+ ];
+
+ export default data;
