@@ -1,7 +1,8 @@
 ABOUT
 
-This project was conducted for the purpose of learning about calculating of Burmese Calendar dates, JavaScript date objects and time zones.
-I did this project as a tutorial while learning Javascript.
+This project was conducted for the purpose of learning about calculating of Burmese Calendar dates, JavaScript date objects and time zones.I did this project as a tutorial while learning Javascript.
+
+INSTALL
 
 
 RESOURCES
