@@ -1,7 +1,7 @@
 import { data } from "./worldtime/tz.js";
 import { DateTime,burmeseDate } from "./burmese/burmeseDate.js";
 import language from "./burmese/language.js";
-
+import { getTimeZones, rawTimeZones, timeZonesNames} from "@vvo/tzdb";
 
 namespace Khaya {
 
@@ -281,9 +281,118 @@ namespace Khaya {
           NewYearDay
         }
     };
-    
+    // ===================================
+   export  function DivisibleBy(a:number, b: number){
+        return ((a%b) == 0);
+    };
 
-  
+    export function IsLeapYear(year : number){
+        var itIsLeapYear;
+      
+        if(DivisibleBy(year, 4)){
+          if(DivisibleBy(year, 100)){
+            if(DivisibleBy(year, 400)){
+              itIsLeapYear = true;
+            }else{
+              itIsLeapYear = false;
+            }
+          }else{
+            itIsLeapYear = true;
+          }
+        }else{
+          itIsLeapYear = false;
+        }
+      
+        return itIsLeapYear;
+    };
+   export function DaysInYears(years : number){
+        var days;
+        var i;
+        var nrOfDays;
+      
+        days = 0;
+        for(i = 1752; i < years; i = i + 1){
+          if(IsLeapYear(i)){
+            nrOfDays = 366;
+          }else{
+            nrOfDays = 365;
+          }
+          days = days + nrOfDays;
+        }
+      
+        return days;
+    };
+    export function GetDaysInMonth(year : number){
+        var daysInMonth;
+      
+        daysInMonth = [];
+        daysInMonth.length = 1 + 12;
+      
+        daysInMonth[0] = 0;
+        daysInMonth[1] = 31;
+      
+        if(IsLeapYear(year)){
+          daysInMonth[2] = 29;
+        }else{
+          daysInMonth[2] = 28;
+        }
+        daysInMonth[3] = 31;
+        daysInMonth[4] = 30;
+        daysInMonth[5] = 31;
+        daysInMonth[6] = 30;
+        daysInMonth[7] = 31;
+        daysInMonth[8] = 31;
+        daysInMonth[9] = 30;
+        daysInMonth[10] = 31;
+        daysInMonth[11] = 30;
+        daysInMonth[12] = 31;
+      
+        return daysInMonth;
+    };
+
+    export function DaysInMonths(month: number, year: number){
+        var daysInMonth;
+        var days;
+        var i;
+      
+        daysInMonth = GetDaysInMonth(year);
+      
+        days = 0;
+        for(i = 1; i < month; i = i + 1){
+          days = days + daysInMonth[i];
+        }
+      
+        return days;
+    };
+    export const GetDay = (year:number,month:number,date:number)=>{
+        var days;
+        
+          /* Day 1752-01-01 */
+          days =  -79623;
+        
+          days = days + DaysInYears(year);
+          days = days + DaysInMonths(month, year);
+          days = days + date - 1;
+        
+          return days;
+    };
+
+    function DaysBetweenDates(dateFrom: string, dateTo: string){
+        const y1 = parseInt(dateFrom.split('-')[0]);
+        const m1= parseInt(dateFrom.split('-')[1]);
+        const d1 = parseInt(dateFrom.split('-')[2]);
+        const y2 = parseInt(dateTo.split('-')[0]);
+        const m2= parseInt(dateTo.split('-')[1]);
+        const d2 = parseInt(dateTo.split('-')[2]);
+        var daysA, daysB, daysBetween;
+      
+        daysA = GetDay(y1,m1,d1);
+        daysB = GetDay(y2,m2,d2);
+      
+        daysBetween = daysB - daysA;
+      
+        return daysBetween;
+    };
   
 
 
@@ -291,3 +400,10 @@ namespace Khaya {
 };
 
 export default Khaya;
+export {
+    burmeseDate,
+    DateTime,
+    getTimeZones,
+    rawTimeZones, 
+    timeZonesNames
+}

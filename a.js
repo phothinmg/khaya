@@ -27,16 +27,16 @@ function DateToDays(date){
   
     return days;
 }
-function DaysBetweenDates(A, B){
-    var daysA, daysB, daysBetween;
+// function DaysBetweenDates(A, B){
+//     var daysA, daysB, daysBetween;
   
-    daysA = DateToDays(A);
-    daysB = DateToDays(B);
+//     daysA = DateToDays(A);
+//     daysB = DateToDays(B);
   
-    daysBetween = daysB - daysA;
+//     daysBetween = daysB - daysA;
   
-    return daysBetween;
-}
+//     return daysBetween;
+// }
 function CreateDateTime(year, month, day, hours, minutes, seconds){
     var dateTime;
   
@@ -212,12 +212,40 @@ function DateTimeToStringISO8601(datetime){
 
 
 
-// var a = GetContentTypeFromExtension('numbers.js')
-var b = CreateDate(2023,12,26)
-var c = DateToStringISO8601(b)
+// var a = CreateDate(2023,12,26)
+// var b = DateToDays(a)
 
+const GetDay = (year,month,date)=>{
+  var days;
+  
+    /* Day 1752-01-01 */
+    days =  -79623;
+  
+    days = days + DaysInYears(year);
+    days = days + DaysInMonths(month, year);
+    days = days + date - 1;
+  
+    return days;
+}
+function DaysBetweenDates(dateFrom, dateTo){
+  const y1 = parseInt(dateFrom.split('-')[0]);
+  const m1= parseInt(dateFrom.split('-')[1]);
+  const d1 = parseInt(dateFrom.split('-')[2]);
+  const y2 = parseInt(dateTo.split('-')[0]);
+  const m2= parseInt(dateTo.split('-')[1]);
+  const d2 = parseInt(dateTo.split('-')[2]);
+  var daysA, daysB, daysBetween;
 
+  daysA = GetDay(y1,m1,d1);
+  daysB = GetDay(y2,m2,d2);
+
+  daysBetween = daysB - daysA;
+
+  return daysBetween;
+};
+var b = DaysBetweenDates('1973-08-18', '2023-12-27')
+var c = GetDay(2023,12,26)
 
 console.log(c)
-console.log(b)
+console.log(b/365)
 // console.log(b/365)
