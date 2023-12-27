@@ -1,87 +1,223 @@
 
-function J2G(jd,ct=0, tz=0, SG=2361222){
-    // var jd = parseInt(jdd);
-    let 
-    j ,
-    jf ,
-    month,
-    date,
-    year,
-    hour,
-    minutes,
-    seconds;
-    if (ct==2 || (ct==0 && (jd<SG))){
-        j = Math.floor(jd+0.5); 
-        jf = jd+0.5-j; 
-        var 
-        b=j+1524,
-        c=Math.floor((b-122.1)/365.25),
-        f=Math.floor(365.25*c),
-        e=Math.floor((b-f)/30.6001);
-        month =(e>13)?(e-13):(e-1);
-        date =b-f-Math.floor(30.6001*e);
-        year = month<3?(c-4715):(c-4716);
+function DivisibleBy(a, b){
+    return ((a%b) == 0);
+  }
+//  =====================
+function CreateDate(year, month, day){
+    var date;
+  
+    date = {};
+  
+    date.year = year;
+    date.month = month;
+    date.day = day;
+  
+    return date;
+}
+// 
+function DateToDays(date){
+    var days;
+  
+    /* Day 1752-01-01 */
+    days =  -79623;
+  
+    days = days + DaysInYears(date.year);
+    days = days + DaysInMonths(date.month, date.year);
+    days = days + date.day - 1;
+  
+    return days;
+}
+function DaysBetweenDates(A, B){
+    var daysA, daysB, daysBetween;
+  
+    daysA = DateToDays(A);
+    daysB = DateToDays(B);
+  
+    daysBetween = daysB - daysA;
+  
+    return daysBetween;
+}
+function CreateDateTime(year, month, day, hours, minutes, seconds){
+    var dateTime;
+  
+    dateTime = {};
+  
+    dateTime.date = CreateDate(year, month, day);
+    dateTime.hours = hours;
+    dateTime.minutes = minutes;
+    dateTime.seconds = seconds;
+  
+    return dateTime;
+}
+// =============================================================
+function DaysInYears(years){
+    var days;
+    var i;
+    var nrOfDays;
+  
+    days = 0;
+    for(i = 1752; i < years; i = i + 1){
+      if(IsLeapYear(i)){
+        nrOfDays = 366;
+      }else{
+        nrOfDays = 365;
+      }
+      days = days + nrOfDays;
     }
-    else {
-        j=Math.floor(jd+0.5); 
-        jf=jd+0.5-j; 
-        j-=1721119;
-        year = Math.floor((4*j-1)/146097);
-        j=4*j-1-146097*year;
-        date=Math.floor(j/4);
-        j=Math.floor((4*date+3)/1461);
-        date=4*date+3-1461*j;
-        date=Math.floor((date+4)/4); 
-        month=Math.floor((5*date-3)/153); 
-        date=5*date-3-153*month;
-        date=Math.floor((date+5)/5); 
-        year=100*year+j;
-        if(month<10){
-            month+=3;
-        }
-        else {
-            month-=9; 
-            year=year+1;
-        }
+  
+    return days;
+}
+// ----------
+function DaysInMonths(month, year){
+    var daysInMonth;
+    var days;
+    var i;
+  
+    daysInMonth = GetDaysInMonth(year);
+  
+    days = 0;
+    for(i = 1; i < month; i = i + 1){
+      days = days + daysInMonth[i];
     }
-    // Get hour minutes seconds 
-    jf*=24;
-    hour=Math.floor(jf); 
-    jf=(jf-hour)*60; 
-    minutes= Math.floor(jf); 
-    seconds = (jf-minutes)*60;
-    // Week day string and Month in string
-    var MONTH = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    var WEEK = ["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"];
-    jd+=tz/24.0;
-    var jdd = Math.floor(jd+0.5);
-    var wd = (jdd+2)%7;
-    var wdstr = WEEK[wd];
-    var mostr = MONTH[month-1];// -1 for array
-    // length of mont
-    // var lom = lengthOfMonth(year,month);
+  
+    return days;
+}
+// ==========================
 
-    return({
-        year: year,
-        month: month,
-        date: date,
-        hour: hour,
-        minutes: minutes,
-        seconds: seconds,
-        weekday_num: wd,
-        weekday_str: wdstr,
-        month_str: mostr,
-        // length_of_month: lom,
-    })
-
-};
-  function jutoge() {
-    const jdn = document.getElementById('cc').value;
-    const jdnn = parseInt(jdn,0,7)
-    const jdnnn= J2G(jdnn);
-    const ree = JSON.stringify(jdnnn, null, 2);
-    document.getElementById('dd').innerHTML = ree;
-    console.log(jdn);
+// ------------
+function IsLeapYear(year){
+    var itIsLeapYear;
+  
+    if(DivisibleBy(year, 4)){
+      if(DivisibleBy(year, 100)){
+        if(DivisibleBy(year, 400)){
+          itIsLeapYear = true;
+        }else{
+          itIsLeapYear = false;
+        }
+      }else{
+        itIsLeapYear = true;
+      }
+    }else{
+      itIsLeapYear = false;
+    }
+  
+    return itIsLeapYear;
+}
+// ========================
+  function GetDaysInMonth(year){
+    var daysInMonth;
+  
+    daysInMonth = [];
+    daysInMonth.length = 1 + 12;
+  
+    daysInMonth[0] = 0;
+    daysInMonth[1] = 31;
+  
+    if(IsLeapYear(year)){
+      daysInMonth[2] = 29;
+    }else{
+      daysInMonth[2] = 28;
+    }
+    daysInMonth[3] = 31;
+    daysInMonth[4] = 30;
+    daysInMonth[5] = 31;
+    daysInMonth[6] = 30;
+    daysInMonth[7] = 31;
+    daysInMonth[8] = 31;
+    daysInMonth[9] = 30;
+    daysInMonth[10] = 31;
+    daysInMonth[11] = 30;
+    daysInMonth[12] = 31;
+  
+    return daysInMonth;
+}
+// ====================
+function DecimalDigitToCharacter(digit){
+    var c;
+    if(digit == 1){
+      c = '1';
+    }else if(digit == 2){
+      c = '2';
+    }else if(digit == 3){
+      c = '3';
+    }else if(digit == 4){
+      c = '4';
+    }else if(digit == 5){
+      c = '5';
+    }else if(digit == 6){
+      c = '6';
+    }else if(digit == 7){
+      c = '7';
+    }else if(digit == 8){
+      c = '8';
+    }else if(digit == 9){
+      c = '9';
+    }else{
+      c = '0';
+    }
+    return c;
+  }
+  function DateToStringISO8601(date){
+    var str;
+  
+    str = [];
+    str.length = 10;
+  
+    str[0] = DecimalDigitToCharacter(Math.floor(date.year/1000));
+    str[1] = DecimalDigitToCharacter(Math.floor((date.year%1000)/100));
+    str[2] = DecimalDigitToCharacter(Math.floor((date.year%100)/10));
+    str[3] = DecimalDigitToCharacter(Math.floor(date.year%10));
+  
+    str[4] = '-';
+  
+    str[5] = DecimalDigitToCharacter(Math.floor((date.month%100)/10));
+    str[6] = DecimalDigitToCharacter(Math.floor(date.month%10));
+  
+    str[7] = '-';
+  
+    str[8] = DecimalDigitToCharacter(Math.floor((date.day%100)/10));
+    str[9] = DecimalDigitToCharacter(Math.floor(date.day%10));
+  
+    return str;
+  }
+function DateTimeToStringISO8601(datetime){
+    var datestr, str;
+    var i;
+  
+    str = [];
+    str.length = 19;
+  
+    datestr = DateToStringISO8601(datetime.date);
+    for(i = 0; i < datestr.length; i = i + 1){
+      str[i] = datestr[i];
+    }
+  
+    str[10] = 'T';
+    str[11] = DecimalDigitToCharacter(Math.floor((datetime.hours%100)/10));
+    str[12] = DecimalDigitToCharacter(Math.floor(datetime.hours%10));
+  
+    str[13] = ':';
+  
+    str[14] = DecimalDigitToCharacter(Math.floor((datetime.minutes%100)/10));
+    str[15] = DecimalDigitToCharacter(Math.floor(datetime.minutes%10));
+  
+    str[16] = ':';
+  
+    str[17] = DecimalDigitToCharacter(Math.floor((datetime.seconds%100)/10));
+    str[18] = DecimalDigitToCharacter(Math.floor(datetime.seconds%10));
+  
+    return str;
   }
 
-console.log(J2G(2460416.687106333));
+
+
+// var a = GetContentTypeFromExtension('numbers.js')
+var b = CreateDate(2023,12,26)
+var c = DateToStringISO8601(b)
+
+
+
+console.log(c)
+console.log(b)
+// console.log(b/365)
