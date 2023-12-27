@@ -377,7 +377,7 @@ namespace Khaya {
           return days;
     };
 
-    function DaysBetweenDates(dateFrom: string, dateTo: string){
+    export function DaysBetweenDates(dateFrom: string, dateTo: string){
         const y1 = parseInt(dateFrom.split('-')[0]);
         const m1= parseInt(dateFrom.split('-')[1]);
         const d1 = parseInt(dateFrom.split('-')[2]);
