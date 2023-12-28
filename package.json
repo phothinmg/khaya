@@ -20,7 +20,7 @@
     "Calendar"
   ],
   "author": "Pho Thin Maung",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/node": "^20.10.5",
     "typescript": "^5.3.3"
