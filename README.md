@@ -89,7 +89,7 @@ const getWorldTime = Khaya.WorldTime(timeZoneName: string)
 import Khaya from "khaya";
 const getBurmeseDate = Khaya.GetBurmeseDate(date: string, lang: number)
 ```
-Parameter 
+Parameters 
   - date format - `YYYY-MM-DD`
 
   - lang - English = 1 , Burmese = 2, default = 2
