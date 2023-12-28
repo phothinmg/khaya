@@ -8,7 +8,7 @@ The package focus on Burmese Date and Time API and also some world time data. **
 
 Khaya is base on  [@vvo/tzdb](https://github.com/vvo/tzdb) about time zones.
 
-##### INSTALL 
+##### INSTALL
 
 ```bash
 npm i khaya
