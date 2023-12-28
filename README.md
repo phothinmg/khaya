@@ -30,6 +30,7 @@ import Khaya from "khaya";
 **1. Gregorian to Julian Day Number**
 
 ```javascript
+import Khaya from "khaya";
 const jdn = Khaya.G2J(year: number,month: number,date : number,hour=12,minutes=0,seconds=0)
 ```
 
@@ -43,6 +44,7 @@ const jdn = Khaya.G2J(year: number,month: number,date : number,hour=12,minutes=0
 
 
 ```javascript
+import Khaya from "khaya";
 const jdn = Khaya.J2G(jdn: number)
 ```
 
@@ -63,6 +65,7 @@ const jdn = Khaya.J2G(jdn: number)
 [Check Time Zones List](https://github.com/phothinmg/khaya/wiki/Time-Zones-List-generated-by-@vvo-tzdb)  - example -  "Asia/Yangon"
 
 ```javascript
+import Khaya from "khaya";
 const getWorldTime = Khaya.WorldTime(timeZoneName: string)
 ```
 
@@ -83,6 +86,7 @@ const getWorldTime = Khaya.WorldTime(timeZoneName: string)
 **4. Get Burmese Date**
 
 ```javascript
+import Khaya from "khaya";
 const getBurmeseDate = Khaya.GetBurmeseDate(date: string, lang: number)
 ```
 Parameter 
