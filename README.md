@@ -58,6 +58,8 @@ const jdn = Khaya.J2G(jdn: number)
 |  weekday_str | string |
 |  month_str | string |
 
+**3. Get World Time Data depend on time zone name**
+
 
 
 
