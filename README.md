@@ -27,7 +27,7 @@ yarn add khaya
 import Khaya from "khaya";
 ```
 
-**1. Gregorian to Julian Day Number**
+**Gregorian to Julian Day Number**
 
 ```javascript
 import Khaya from "khaya";
@@ -40,7 +40,7 @@ const jdn = Khaya.G2J(year: number,month: number,date : number,hour=12,minutes=0
 
 
 
-**2. Julian Day Number(JDN) to  Gregorian**
+**Julian Day Number(JDN) to  Gregorian**
 
 
 ```javascript
@@ -60,7 +60,7 @@ const jdn = Khaya.J2G(jdn: number)
 |  weekday_str | string |
 |  month_str | string |
 
-**3. Get World Time Data depend on time zone name**
+**Get World Time Data depend on time zone name**
 
 [Check Time Zones List](https://github.com/phothinmg/khaya/wiki/Time-Zones-List-generated-by-@vvo-tzdb)  - example -  "Asia/Yangon"
 
@@ -83,7 +83,28 @@ const getWorldTime = Khaya.WorldTime(timeZoneName: string)
 | utcDateTimeString   |   string   |
 
 
-**4. Get Burmese Date**
+**Is Leap Year Check**
+
+```javascript
+import Khaya from "khaya";
+const ckeckLeapYear = Khaya.IsLeapYear(year : number)
+```
+
+Return : Boolean
+
+
+**Days Between Date**
+
+```javascript
+import Khaya from "khaya";
+const ckeckLeapYear = Khaya.DaysBetweenDates(dateFrom: string, dateTo: string)
+```
+Parameter - date format - `YYYY-MM-DD`
+
+Return : Days : Number
+
+
+**Get Burmese Date**
 
 ```javascript
 import Khaya from "khaya";
@@ -113,6 +134,28 @@ Parameters
 | maharbote         |   string  |
 | nakhat            |   string  |
 | warHtutType       |   string  |
+
+
+**Mahar Thingyan(Myanmar New Year)**
+
+```javascript
+import Khaya from "khaya";
+const getThingyan = Khaya.MaharThingyan(my: string)
+```
+
+Parameter
+
+- my : Myanmar Year 
+
+|   Return   |  Type  |
+|:----------:|:------:|
+| AtatTime,  | string |
+| AkyaTime,  | string |
+| AkyoDay,   | string |
+| AkyaDay,   | string |
+| AkyatDay,  | string |
+| AkyatDay2, | string |
+| AtatDay,   | string |
 
 
 
