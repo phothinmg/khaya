@@ -8,7 +8,7 @@ The package focus on Burmese Date and Time API and also some world time data. **
 
 Khaya is base on  [@vvo/tzdb](https://github.com/vvo/tzdb) about time zones.
 
-###### INSTALL 
+##### INSTALL 
 
 ```bash
 npm i khaya
@@ -19,11 +19,45 @@ yarn add khaya
 ```
 
 
-###### USAGE
+##### USAGE
+
+**Namespace Khaya**
 
 ```javascript
 import Khaya from "khaya";
 ```
+
+**1. Gregorian to Julian Day Number**
+
+```javascript
+const jdn = Khaya.G2J(year: number,month: number,date : number,hour=12,minutes=0,seconds=0)
+```
+
+| Return |  Type  | 
+|:------:|:------:|
+| Julian Day Number   | number |        
+
+
+
+**2. Julian Day Number(JDN) to  Gregorian**
+
+
+```javascript
+const jdn = Khaya.J2G(jdn: number)
+```
+
+|  Return |  Type  |
+|:-------:|:------:|
+| year    | number |
+| month   | number |
+| date    | number |
+| hour    | number |
+| minutes | number |
+| seconds | number |
+| weekday_num | number |
+|  weekday_str | string |
+|  month_str | string |
+
 
 
 
