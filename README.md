@@ -80,6 +80,38 @@ const getWorldTime = Khaya.WorldTime(timeZoneName: string)
 | utcDateTimeString   |   string   |
 
 
+**4. Get Burmese Date**
+
+```javascript
+const getBurmeseDate = Khaya.GetBurmeseDate(date: string, lang: number)
+```
+Parameter 
+  - date format - `YYYY-MM-DD`
+
+  - lang - English = 1 , Burmese = 2, default = 2
+
+
+
+|       Return      |    Type   |
+|:-----------------:|:---------:|
+| sasanaYear        |  string   |
+| nameOfBurmeseYear |   string  |
+| burmeseYear       |   string  |
+| burmeseMonth      |   string  |
+| burmeseDay        |   string  |
+| burmeseWeekDay    |   string  |
+| lunarPhase        |   string  |
+| yatyarzar         |   string  |
+| pyatthadar        |   string  |
+| dragonHead        |   string  |
+| sabbath           |   string  |
+| astroDays         | string [ ] |
+| maharbote         |   string  |
+| nakhat            |   string  |
+| warHtutType       |   string  |
+
+
+
 
 
 
