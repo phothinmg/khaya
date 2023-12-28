@@ -60,6 +60,27 @@ const jdn = Khaya.J2G(jdn: number)
 
 **3. Get World Time Data depend on time zone name**
 
+[Check Time Zones List](https://github.com/phothinmg/khaya/wiki/Time-Zones-List-generated-by-@vvo-tzdb)  - example -  "Asia/Yangon"
+
+```javascript
+const getWorldTime = Khaya.WorldTime(timeZoneName: string)
+```
+
+|        Return       |    Type    |
+|:-------------------:|:----------:|
+| rawOffsetInMinutes  | number/any |
+| rawOffsetInSeconds  |   number   |
+| timestampInUtc      |   number   |
+| timestampLocal      |   number   |
+| localDateTime       |    Date    |
+| dayNumberOfYear     |   number   |
+| weekOfYear          |   number   |
+| utcOffsetString     | string/any |
+| localDateTimeString |   string   |
+| utcDateTimeString   |   string   |
+
+
+
 
 
 
