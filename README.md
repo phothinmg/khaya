@@ -1,6 +1,6 @@
 ![cover](https://pub-d94f06e647584b8496cac0d43a6fecfb.r2.dev/images/KhayaCover.jpg)
 
-[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=phothinmg&name=khay)](https://repo-rater.eddiehub.io/rate?owner=phothinmg&name=khaya) [![phothinmg - khaya](https://img.shields.io/static/v1?label=phothinmg&message=khaya&color=blue&logo=github)](https://github.com/phothinmg/khaya "Go to GitHub repo") [![GitHub release](https://img.shields.io/github/release/phothinmg/khaya?include_prereleases=&sort=semver&color=blue)](https://github.com/phothinmg/khaya/releases/) [![License](https://img.shields.io/badge/License-Apache--2.0-blue)](#license) [![stars - khaya](https://img.shields.io/github/stars/phothinmg/khaya?style=social)](https://github.com/phothinmg/khaya) [![forks - khaya](https://img.shields.io/github/forks/phothinmg/khaya?style=social)](https://github.com/phothinmg/khaya)
+[![phothinmg - khaya](https://img.shields.io/static/v1?label=phothinmg&message=khaya&color=blue&logo=github)](https://github.com/phothinmg/khaya "Go to GitHub repo") [![GitHub release](https://img.shields.io/github/release/phothinmg/khaya?include_prereleases=&sort=semver&color=blue)](https://github.com/phothinmg/khaya/releases/) [![License](https://img.shields.io/badge/License-Apache--2.0-blue)](#license)
 
 
 #### ABOUT
