@@ -2,6 +2,8 @@
 
 [![phothinmg - khaya](https://img.shields.io/static/v1?label=phothinmg&message=khaya&color=blue&logo=github)](https://github.com/phothinmg/khaya "Go to GitHub repo") [![GitHub release](https://img.shields.io/github/release/phothinmg/khaya?include_prereleases=&sort=semver&color=blue)](https://github.com/phothinmg/khaya/releases/) [![License](https://img.shields.io/badge/License-Apache--2.0-blue)](#license)
 
+[![Package Quality](https://packagequality.com/badge/khaya.png)](https://packagequality.com/#?package=khaya)
+
 
 #### ABOUT
 
