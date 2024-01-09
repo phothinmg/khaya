@@ -9,7 +9,7 @@
 
 **[Khaya - ခရာ](https://en.wikipedia.org/wiki/Burmese_calendar#:~:text=4%20seconds-,khaya,-%E1%80%81%E1%80%9B%E1%80%AC)** , one of the Burmese time unit , approximate equivalent to 400 milliseconds.
 
-The package focus on Burmese Date and Time API and also some world time data. **esm only**
+The package focus on Burmese Date and some world time data. ***esm only***
 
 Khaya is base on  [@vvo/tzdb](https://github.com/vvo/tzdb) about time zones.
 
